@@ -9,17 +9,29 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     private bool hasKey = false;
+    private Rigidbody2D rb;
+    [SerializeField] private Camera cam; // the camera that follows the player
+    [SerializeField] private float mSpeed; // movement speed
 
-    // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        GetInputs();
+    }
 
+    void GetInputs()
+    {
+        Vector3 movement = Vector3.zero;
+        if (Input.GetKey(KeyCode.LeftArrow)) movement.x -= 1;
+        if (Input.GetKey(KeyCode.RightArrow)) movement.x += 1;
+        if (Input.GetKey(KeyCode.UpArrow)) movement.y += 1;
+        if (Input.GetKey(KeyCode.DownArrow)) movement.y -= 1;
+        
+        rb.velocity = movement * mSpeed;
     }
 
     void OnTriggerEnter2D(Collider2D other)
