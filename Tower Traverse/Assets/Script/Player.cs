@@ -18,20 +18,20 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         GetInputs();
     }
 
     void GetInputs()
     {
-        Vector3 movement = Vector3.zero;
+        Vector2 movement = Vector2.zero;
         if (Input.GetKey(KeyCode.LeftArrow)) movement.x -= 1;
         if (Input.GetKey(KeyCode.RightArrow)) movement.x += 1;
         if (Input.GetKey(KeyCode.UpArrow)) movement.y += 1;
         if (Input.GetKey(KeyCode.DownArrow)) movement.y -= 1;
         
-        rb.velocity = movement * mSpeed;
+        rb.velocity = (rb.velocity / 1.5f) + (movement * mSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D other)
