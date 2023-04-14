@@ -36,8 +36,6 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("h");
-
         if (other.gameObject.tag == "Key")
         {
             hasKey = true;
