@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.tag == "Door" && hasKey)
         {
-            Destroy(other.gameObject);
+            SceneManager.LoadScene("Win");
         }
     }
 }
