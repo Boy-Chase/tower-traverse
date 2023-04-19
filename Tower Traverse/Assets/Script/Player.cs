@@ -46,5 +46,11 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Win");
         }
+
+        if (other.gameObject.tag == "Arrow")
+        {
+            // Game Over
+            Destroy(gameObject);
+        }
     }
 }
