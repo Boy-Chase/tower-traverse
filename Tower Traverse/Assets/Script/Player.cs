@@ -9,23 +9,33 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     private bool hasKey = false;
+    private Rigidbody2D rb;
+    [SerializeField] private Camera cam; // the camera that follows the player
+    [SerializeField] private float mSpeed; // movement speed
 
-    // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        GetInputs();
+    }
 
+    void GetInputs()
+    {
+        Vector2 movement = Vector2.zero;
+        if (Input.GetKey(KeyCode.LeftArrow)) movement.x -= 1;
+        if (Input.GetKey(KeyCode.RightArrow)) movement.x += 1;
+        if (Input.GetKey(KeyCode.UpArrow)) movement.y += 1;
+        if (Input.GetKey(KeyCode.DownArrow)) movement.y -= 1;
+        
+        rb.velocity = (rb.velocity / 1.5f) + (movement * mSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("h");
-
         if (other.gameObject.tag == "Key")
         {
             hasKey = true;
@@ -34,7 +44,13 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.tag == "Door" && hasKey)
         {
-            Destroy(other.gameObject);
+            SceneManager.LoadScene("Win");
+        }
+
+        if (other.gameObject.tag == "Arrow")
+        {
+            // Game Over
+            Destroy(gameObject);
         }
     }
 }
