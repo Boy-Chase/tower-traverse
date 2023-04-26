@@ -9,17 +9,40 @@ public enum TrapType
 
 public abstract class Trap : MonoBehaviour
 {
-    public float activateOnTime;
+    [SerializeField] private List<float> activateOnTime;
+    [SerializeField] private List<bool> activatedYet;
     public GameObject trigger;
+    private TrapType type;
+    private bool active;
 
-    void Start()
+    void Start() 
     {
-        //TODO: hookup trap to trigger's game object
+        activatedYet = new List<bool>();
+        for (int i = 0; i < activateOnTime.Count; i++)
+        {
+            activatedYet.Add(false);
+        }
     }
-
     void Update()
     {
-        //TODO: Implement activating on gamemanager time
+        if (type == TrapType.Trigger && trigger.GetComponent<Trigger>().triggered) active = true;
+        else if (type == TrapType.Timer) active = true;
+
+        if (active)
+        {
+            for (int i = 0; i < activateOnTime.Count; i++)
+            {
+                if (activatedYet[i]) continue;
+
+                if (activateOnTime[i] > GameManager.Instance.time)
+                {
+                    Activate();
+                    activatedYet[i] = true;
+                }
+            }
+        }
     }
+
+
     public abstract void Activate();
 }
