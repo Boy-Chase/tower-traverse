@@ -9,6 +9,9 @@ public class Plate : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Shooter.GetComponent<ITrap>().Activate();
+        if (other.tag == "Player")
+        {
+            Shooter.GetComponent<ITrap>().Activate();
+        }
     }
 }
