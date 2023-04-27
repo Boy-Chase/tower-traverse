@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97225696872158919}
   - component: {fileID: 97225696872158916}
-  - component: {fileID: 97225696872158917}
+  - component: {fileID: -8912777293877510885}
   m_Layer: 0
   m_Name: PressureShooter
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 97225696872158922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.5, y: -2.5, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &97225696872158917
+--- !u!114 &-8912777293877510885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 97225696872158922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4627c9d2d05688341af0a04f5a2e52e2, type: 3}
+  m_Script: {fileID: 11500000, guid: e85bab2c91304424f9f8fee655898a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
   arrow: {fileID: 5170337276600539123, guid: 7f3bb382b50bea440bff2f4c34778c7a, type: 3}
