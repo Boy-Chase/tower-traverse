@@ -9,6 +9,6 @@ public class Plate : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Shooter.GetComponent<PressureShooter>().Fire();
+        Shooter.GetComponent<ITrap>().Activate();
     }
 }
