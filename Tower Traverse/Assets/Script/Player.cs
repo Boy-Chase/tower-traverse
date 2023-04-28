@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
             else SceneManager.LoadScene("Win");
         }
 
-        if (other.gameObject.tag == "Arrow")
+        if (other.gameObject.tag == "Arrow" || other.gameObject.tag == "Spikes")
         {
             GameManager.Instance.currentLevel = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene("Death");
