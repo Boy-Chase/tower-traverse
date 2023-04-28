@@ -10,6 +10,6 @@ public class WinScreen : MonoBehaviour
     void Update()
     {
         timePassed += Time.deltaTime;
-        if (timePassed > 4) SceneManager.LoadScene("Level1");
+        if (timePassed > 4) SceneManager.LoadScene("StartScene");
     }
 }
