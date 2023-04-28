@@ -44,7 +44,8 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.tag == "Door" && hasKey)
         {
-            SceneManager.LoadScene("Win");
+            if(SceneManager.GetActiveScene().name=="Level1") SceneManager.LoadScene("Level2");
+            else SceneManager.LoadScene("Win");
         }
 
         if (other.gameObject.tag == "Arrow")
