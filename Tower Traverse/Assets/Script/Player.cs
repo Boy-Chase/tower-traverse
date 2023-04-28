@@ -49,8 +49,8 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.tag == "Arrow")
         {
-            // Game Over
-            Destroy(gameObject);
+            GameManager.Instance.currentLevel = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene("Death");
         }
     }
 }
